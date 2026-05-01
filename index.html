@@ -265,6 +265,23 @@
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
     }
+    .hs-form-frame label,
+    .hs-form-frame .hs-field-desc { color: var(--white) !important; }
+    .hs-form-frame input[type="text"],
+    .hs-form-frame input[type="email"] {
+      background: rgba(255,255,255,0.06) !important;
+      border: 1px solid var(--border) !important;
+      color: var(--white) !important;
+      border-radius: 6px !important;
+    }
+    .hs-form-frame .hs-button {
+      background: var(--orange) !important;
+      color: var(--navy) !important;
+      border: none !important;
+      border-radius: 6px !important;
+      font-weight: 500 !important;
+    }
+    .hs-form-frame .hs-button:hover { background: #e68a00 !important; }
     @media (max-width: 560px) {
       .form-row { flex-direction: column; }
       .form-btn { width: 100%; }
