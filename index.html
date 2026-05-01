@@ -330,24 +330,8 @@
       <h2 class="cta-heading">Launching later this year.</h2>
       <p class="cta-sub">Drop your email and I'll reach out when workshops and spots open up. No newsletter. No spam. One note when it matters.</p>
 
-      <!-- HUBSPOT EMBED: Replace this form with your HubSpot embedded form code -->
-      <form id="notify-form" onsubmit="handleSubmit(event)" novalidate>
-        <div class="form-row">
-          <input class="form-input" type="text" id="name" name="name" placeholder="Your name" autocomplete="name" />
-          <input class="form-input" type="email" id="email" name="email" placeholder="Work email" autocomplete="email" required />
-          <button class="form-btn" type="submit">Notify me</button>
-        </div>
-        <p class="form-note">No newsletter, no cadence — just one note when we launch.</p>
-      </form>
-      <!-- END HUBSPOT EMBED -->
-
-      <div class="form-success" id="success-msg">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <circle cx="8" cy="8" r="7" stroke="#64DC32" stroke-width="1.5"/>
-          <path d="M5 8l2 2 4-4" stroke="#64DC32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        You're on the list. I'll be in touch.
-      </div>
+      <script src="https://js-na2.hsforms.net/forms/embed/246064564.js" defer></script>
+      <div class="hs-form-frame" data-region="na2" data-form-id="cc320950-c47a-461a-b1e9-54f7f34b783b" data-portal-id="246064564"></div>
 
       <p class="mailto-alt">
         Prefer to reach out directly?
@@ -365,14 +349,6 @@
     </footer>
 
   </div>
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value.trim();
-      if (!email || !email.includes('@')) { document.getElementById('email').focus(); return; }
-      document.getElementById('notify-form').style.display = 'none';
-      document.getElementById('success-msg').style.display = 'flex';
-    }
-  </script>
+
 </body>
 </html>
