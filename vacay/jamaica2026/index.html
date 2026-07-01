@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joshua & Jennie's Jamaica Playbook 🇯🇲</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --jungle:    #1a3d28;
+    --deep:      #0f2319;
+    --lime:      #a8e063;
+    --gold:      #d4a847;
+    --gold-light:#f0c866;
+    --coral:     #e8603a;
+    --sky:       #5ab4d4;
+    --muted:     rgba(255,255,255,0.5);
+    --text:      rgba(255,255,255,0.88);
+    --card-bg:   rgba(255,255,255,0.04);
+    --card-border:rgba(255,255,255,0.09);
+    --bday-gold: #ffd700;
+    --bday-glow: rgba(255,215,0,0.25);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--deep); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+  nav { position: sticky; top: 0; z-index: 100; display: flex; flex-wrap: wrap; gap: 4px; padding: 10px 16px; background: rgba(15,35,25,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(168,224,99,0.15); }
+  nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 12px; font-family: 'Space Mono', monospace; padding: 5px 10px; border-radius: 20px; border: 1px solid transparent; transition: all 0.2s; white-space: nowrap; }
+  nav a:hover { color: var(--lime); border-color: rgba(168,224,99,0.3); background: rgba(168,224,99,0.06); }
+
+  .hero { position: relative; text-align: center; padding: 70px 24px 60px; background: radial-gradient(ellipse at 50% 0%, rgba(26,92,58,0.6) 0%, transparent 70%), radial-gradient(ellipse at 20% 100%, rgba(212,168,71,0.15) 0%, transparent 60%); overflow: hidden; }
+  .flag-bar { height: 5px; background: linear-gradient(90deg, #000 33%, #009B3A 33%, #009B3A 67%, #FED100 67%); margin-bottom: 32px; border-radius: 2px; max-width: 280px; margin-inline: auto; opacity: 0.7; }
+  .hero-eyebrow { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--lime); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 10px; }
+  .hero h1 span { color: var(--gold); font-style: italic; }
+  .hero-sub { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 28px; font-family: 'Space Mono', monospace; }
+  .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 32px; }
+  .chip { background: rgba(168,224,99,0.1); border: 1px solid rgba(168,224,99,0.25); color: var(--lime); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-family: 'Space Mono', monospace; }
+  .palm-row { font-size: 2rem; letter-spacing: 0.5em; opacity: 0.6; }
+
+  .section { max-width: 860px; margin: 0 auto; padding: 60px 24px; border-bottom: 1px solid rgba(255,255,255,0.09); }
+  .section-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); margin-bottom: 10px; }
+  .section h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; color: #fff; margin-bottom: 20px; line-height: 1.2; }
+  .section p { color: rgba(255,255,255,0.88); margin-bottom: 14px; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; }
+  .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; padding: 22px; transition: border-color 0.2s, transform 0.2s; }
+  .card:hover { border-color: rgba(168,224,99,0.3); transform: translateY(-2px); }
+  .card-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
+  .card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--gold-light); margin-bottom: 8px; }
+  .card p { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 0; }
+
+  .day-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; margin-bottom: 16px; overflow: hidden; transition: border-color 0.2s; }
+  .day-card:hover { border-color: rgba(212,168,71,0.35); }
+  .day-header { display: flex; align-items: center; gap: 14px; padding: 18px 22px; cursor: pointer; user-select: none; }
+  .day-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--lime); background: rgba(168,224,99,0.1); border: 1px solid rgba(168,224,99,0.2); border-radius: 6px; padding: 4px 8px; white-space: nowrap; flex-shrink: 0; }
+  .day-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #fff; flex: 1; }
+  .day-tag { font-size: 11px; font-family: 'Space Mono', monospace; padding: 3px 9px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }
+  .tag-excursion { background: rgba(90,180,212,0.15); color: var(--sky); border: 1px solid rgba(90,180,212,0.3); }
+  .tag-chill { background: rgba(168,224,99,0.1); color: var(--lime); border: 1px solid rgba(168,224,99,0.25); }
+  .tag-culture { background: rgba(232,96,58,0.12); color: var(--coral); border: 1px solid rgba(232,96,58,0.3); }
+  .tag-travel { background: rgba(212,168,71,0.12); color: var(--gold); border: 1px solid rgba(212,168,71,0.3); }
+  .tag-bday { background: rgba(255,215,0,0.25); color: #ffd700; border: 1px solid rgba(255,215,0,0.5); }
+  .day-chevron { color: rgba(255,255,255,0.5); transition: transform 0.25s; font-size: 16px; flex-shrink: 0; }
+  .day-card.open .day-chevron { transform: rotate(180deg); }
+  .day-body { display: none; padding: 0 22px 22px; border-top: 1px solid rgba(255,255,255,0.09); }
+  .day-card.open .day-body { display: block; }
+  .day-body ul { list-style: none; padding: 0; margin-top: 14px; }
+  .day-body ul li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 15px; display: flex; gap: 10px; align-items: flex-start; color: rgba(255,255,255,0.88); }
+  .day-body ul li:last-child { border-bottom: none; }
+  .li-icon { flex-shrink: 0; width: 22px; text-align: center; }
+  .day-note { background: rgba(212,168,71,0.07); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 14px; font-size: 14px; color: rgba(255,255,255,0.7); }
+  .day-note strong { color: var(--gold-light); }
+
+  .bday-banner { background: linear-gradient(135deg, rgba(255,215,0,0.12) 0%, rgba(212,168,71,0.08) 100%); border: 1px solid rgba(255,215,0,0.4); border-radius: 14px; padding: 20px 22px; margin-bottom: 16px; text-align: center; position: relative; overflow: hidden; }
+  .bday-banner h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; color: #ffd700; margin-bottom: 6px; }
+  .bday-banner p { font-size: 14px; color: rgba(255,255,255,0.65); margin: 0; }
+
+  .excursion-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; padding: 26px; margin-bottom: 18px; }
+  .excursion-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold-light); margin-bottom: 8px; }
+  .excursion-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .meta-pill { font-family: 'Space Mono', monospace; font-size: 11px; padding: 3px 10px; border-radius: 10px; background: rgba(90,180,212,0.1); border: 1px solid rgba(90,180,212,0.25); color: var(--sky); }
+  .meta-pill.gold { background: rgba(212,168,71,0.1); border-color: rgba(212,168,71,0.3); color: var(--gold-light); }
+  .meta-pill.bday-pill { background: rgba(255,215,0,0.25); border-color: rgba(255,215,0,0.4); color: #ffd700; }
+
+  .vibes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 22px; }
+  .vibe-card { background: rgba(168,224,99,0.04); border: 1px solid rgba(168,224,99,0.12); border-radius: 14px; padding: 20px; }
+  .vibe-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--lime); margin-bottom: 10px; }
+  .vibe-card p { font-size: 14px; color: rgba(255,255,255,0.5); margin: 0; }
+  .vibe-card .contact { margin-top: 10px; font-family: 'Space Mono', monospace; font-size: 12px; color: var(--gold); background: rgba(212,168,71,0.07); border-radius: 6px; padding: 6px 10px; }
+
+  .source-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 12px; padding: 18px 20px; margin-bottom: 12px; }
+  .source-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--lime); margin-bottom: 6px; }
+  .source-card .detail { font-size: 13px; color: rgba(255,255,255,0.5); font-family: 'Space Mono', monospace; }
+
+  .info-block { background: rgba(90,180,212,0.05); border: 1px solid rgba(90,180,212,0.2); border-radius: 12px; padding: 20px 22px; margin-top: 18px; }
+  .info-block h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--sky); margin-bottom: 10px; }
+  .info-block p { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 8px; }
+  .info-block a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,168,71,0.3); }
+
+  footer { text-align: center; padding: 60px 20px 80px; background: linear-gradient(0deg, rgba(26,92,58,0.2), transparent); }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; font-style: italic; color: var(--gold); display: block; margin-bottom: 12px; }
+  footer p { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(212,168,71,0.2), transparent); margin: 0 20px; }
+
+  .possibility-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; padding: 24px; margin-bottom: 16px; transition: border-color 0.2s, transform 0.2s; }
+  .possibility-card:hover { border-color: rgba(212,168,71,0.35); transform: translateY(-2px); }
+  .possibility-card .poss-header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+  .possibility-card .poss-icon { font-size: 2rem; flex-shrink: 0; }
+  .possibility-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold-light); flex: 1; }
+  .poss-status { font-family: 'Space Mono', monospace; font-size: 10px; padding: 3px 9px; border-radius: 10px; background: rgba(232,96,58,0.12); border: 1px solid rgba(232,96,58,0.3); color: var(--coral); white-space: nowrap; flex-shrink: 0; }
+  .poss-cost { font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; background: rgba(212,168,71,0.12); border: 1px solid rgba(212,168,71,0.4); color: var(--gold-light); display: inline-block; margin-bottom: 14px; }
+  .possibility-card p { font-size: 15px; color: rgba(255,255,255,0.88); margin-bottom: 10px; }
+  .possibility-card .research-list { list-style: none; padding: 0; margin-top: 10px; }
+  .possibility-card .research-list li { font-size: 13px; color: rgba(255,255,255,0.5); padding: 4px 0 4px 18px; position: relative; }
+  .possibility-card .research-list li::before { content: '→'; position: absolute; left: 0; color: var(--gold); }
+
+  .question-block { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; padding: 24px; margin-bottom: 14px; transition: border-color 0.2s; }
+  .question-block:hover { border-color: rgba(168,224,99,0.25); }
+  .question-block .q-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--lime); background: rgba(168,224,99,0.08); border: 1px solid rgba(168,224,99,0.2); border-radius: 6px; padding: 3px 8px; display: inline-block; margin-bottom: 10px; }
+  .question-block .q-text { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #fff; margin-bottom: 8px; font-style: italic; }
+  .question-block .q-why { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+  .driver-block { background: rgba(90,180,212,0.04); border: 1px solid rgba(90,180,212,0.12); border-radius: 14px; padding: 24px; margin-bottom: 14px; transition: border-color 0.2s; }
+  .driver-block:hover { border-color: rgba(90,180,212,0.3); }
+  .driver-block .q-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--sky); background: rgba(90,180,212,0.1); border: 1px solid rgba(90,180,212,0.2); border-radius: 6px; padding: 3px 8px; display: inline-block; margin-bottom: 10px; }
+  .driver-block .q-text { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #fff; margin-bottom: 8px; font-style: italic; }
+  .driver-block .q-why { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+  a.external { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,168,71,0.3); transition: all 0.2s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#resort">🏝️ Resort</a>
+  <a href="#itinerary">📅 Itinerary</a>
+  <a href="#excursions">🎋 Excursions</a>
+  <a href="#culture">🥁 Culture</a>
+  <a href="#vibes">🌿 Vibes</a>
+  <a href="#possibilities">✨ Possibilities</a>
+  <a href="#concierge">🛎️ Concierge Qs</a>
+  <a href="#driver">🚗 Driver Topics</a>
+  <a href="#c5">📋 C5 Form</a>
+  <a href="#clubmobay">✈️ Club Mobay</a>
+  <a href="#logistics">🗺️ Logistics</a>
+</nav>
+
+<div class="hero">
+  <div class="flag-bar"></div>
+  <div class="hero-eyebrow">July 21 – 29, 2026 · 8 Nights · Green Island, Jamaica</div>
+  <h1>Joshua & Jennie's<br><span>Jamaica Playbook</span></h1>
+  <p class="hero-sub">Princess Senses The Mangrove Resort · Pleasure Junior Suite</p>
+  <div class="hero-chips">
+    <span class="chip">🛖 O'Club Access</span>
+    <span class="chip">♨️ Private Hot Tub</span>
+    <span class="chip">🎋 Bamboo Rafting</span>
+    <span class="chip">💧 Mayfield Falls</span>
+    <span class="chip">🎂 Birthday in Jamaica</span>
+    <span class="chip">🌿 Elevated Experiences</span>
+    <span class="chip">🥁 Cultural Immersion</span>
+  </div>
+  <div class="palm-row">🌴 🇯🇲 🌴</div>
+</div>
+
+<section class="section" id="resort">
+  <div class="section-eyebrow">Where You're Staying</div>
+  <h2>Princess Senses The Mangrove</h2>
+  <p>You're in <strong>Green Island, Hanover</strong> — a quieter, more lush stretch of the island west of Negril. Not the tourist strip. Not near Montego Bay. You're in the good part — where the water is bluer, the vibe is slower, and the resort doesn't feel like a theme park.</p>
+  <p>You've got dual-resort access to Princess Grand Jamaica, O'Club privileges, and a Pleasure Junior Suite with a private terrace hydromassage hot tub, semi-private pool, and a complimentary intimacy kit.</p>
+  <div class="card-grid">
+    <div class="card"><span class="card-icon">🛖</span><h3>O'Club</h3><p>Your own elevated lounge and pool area — reserved seating, premium bar service, upgraded food. Use it. Flex on people.</p></div>
+    <div class="card"><span class="card-icon">♨️</span><h3>Private Terrace Hot Tub</h3><p>Hydromassage hot tub on your private terrace. You know what pairs well with a hot tub and Caribbean views. 🌿</p></div>
+    <div class="card"><span class="card-icon">🌊</span><h3>Semi-Private Pool</h3><p>Not the big family splash zone — your own smaller pool shared by just a few suites. Key for a peaceful float.</p></div>
+    <div class="card"><span class="card-icon">🏝️</span><h3>Dual-Resort Access</h3><p>Walk over to Princess Grand Jamaica for a change of scenery, different restaurants, and more beach. Two resorts, one wristband.</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="itinerary">
+  <div class="section-eyebrow">Day-by-Day</div>
+  <h2>The Game Plan</h2>
+  <p>Eight nights, zero obligations to do a single thing you don't want to do. This is a framework — not a schedule. Let the island breathe.</p>
+
+  <div style="margin-top:28px">
+
+    <div class="day-card open">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-num">TUE · JUL 21</span>
+        <span class="day-title">Arrival Day — Touch Down, Decompress</span>
+        <span class="day-tag tag-travel">✈️ Travel</span>
+        <span class="day-chevron">▼</span>
+      </div>
+      <div class="day-body">
+        <ul>
+          <li><span class="li-icon">✈️</span><span>Land at Sangster International (MBJ). Clear immigration — have your C5 forms filled out already.</span></li>
+          <li><span class="li-icon">🚗</span><span>Ground transfer to Green Island — about 60–75 minutes west of Montego Bay. Crack a window. The drive through the Jamaican countryside is part of the experience.</span></li>
+          <li><span class="li-icon">🏝️</span><span>Check into your Pleasure Junior Suite. Hot tub test. Mandatory.</span></li>
+          <li><span class="li-icon">🍽️</span><span>Let the resort carry tonight. Use the O'Club lounge or whatever restaurant looks good.</span></li>
+          <li><span class="li-icon">🌙</span><span>Watch the sunset from your terrace. First rum punch in hand. Jennie's supplies settled and accounted for. Welcome to Jamaica.</span></li>
+        </ul>
+        <div class="day-note"><strong>Pro tip:</strong> Don't go hard tonight. Save it. You've got 8 nights, a birthday, waterfalls, and a whole island to explore.</div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-num">WED · JUL 22</span>
+        <span class="day-title">Relax — The Island Finds Its Rhythm</span>
+        <span class="day-tag tag-chill">🌿 Chill</span>
+        <span class="day-chevron">▼</span>
+      </div>
+      <div class="day-body">
+        <ul>
+          <li><span class="li-icon">☀️</span><span>Sleep in. You're on vacation. The pool isn't going anywhere.</span></li>
+          <li><span class="li-icon">🏊</span><span>Claim your spot at the semi-private pool or O'Club. Order a jerk chicken wrap and a Red Stripe before noon. No apologies.</span></li>
+          <li><span class="li-icon">🌊</span><span>Hit the beach sometime in the afternoon. Green Island's waterfront is calm and warm.</span></li>
+          <li><span class="li-icon">🌿</span><span>Good day for first contact with your supply sources (mushroomstoreja.com · jybejm.com · or HedoWeedo in Negril). Get things lined up for later in the trip.</span></li>
+          <li><span class="li-icon">🍽️</span><span>Dinner at whichever resort restaurant calls to you. Try the escovitch fish if it's on the menu.</span></li>
+        </ul>
+        <div class="day-note"><strong>Possibilities tuck-in:</strong> If Rocklands Bird Sanctuary is confirmed open, an early-morning visit (~40 min away) pairs beautifully with a chill afternoon back at the resort. Doctor Birds on your hand before noon, rum punch by the pool after. Perfect Wednesday.</div>
+      </div>
+    </div>
+
+    <div class="day-card" style="border-color: rgba(255,215,0,0.35);">
+      <div class="day-header" onclick="toggleDay(this)" style="background: linear-gradient(135deg, rgba(255,215,0,0.06), transparent);">
+        <span class="day-num" style="color: #ffd700; background: rgba(255,215,0,0.1); border-color: rgba(255,215,0,0.3);">THU · JUL 23</span>
+        <span class="day-title" style="color: #ffd700;">🎂 Joshua's Birthday — Mayfield Falls with Lunch</span>
+        <span class="day-tag tag-bday">🎂 Birthday</span>
+        <span class="day-chevron">▼</span>
+      </div>
+      <div class="day-body">
+        <div class="bday-banner">
+          <h3>Happy Birthday, Joshua! 🎂🇯🇲</h3>
+          <p>Spending your birthday wading through a jungle waterfall in Westmoreland? You are built different. Let's GO.</p>
+        </div>
+        <ul>
+          <li><span class="li-icon">🌅</span><span>Wake up as a birthday king. Breakfast on the terrace. Eat — but not too much. Lunch is included.</span></li>
+          <li><span class="li-icon">🚗</span><span>Depart for Mayfield Falls — only about 45 minutes from Green Island. Transport included in the package.</span></li>
+          <li><span class="li-icon">💦</span><span><strong>Mayfield Falls:</strong> A guided river walk through lush jungle — wading upstream through cascades, natural pools, and cool clear water. Intimate, personal, and genuinely beautiful. Keep an eye on the riverbed — gemstones are real here.</span></li>
+          <li><span class="li-icon">🍽️</span><span><strong>Lunch included</strong> — fresh Jamaican food after the swim. Probably the best post-waterfall meal you'll have anywhere.</span></li>
+          <li><span class="li-icon">🎉</span><span>Back to the resort by mid-afternoon. Birthday hot tub. You've earned it. 🌿</span></li>
+          <li><span class="li-icon">🥂</span><span>Birthday dinner — O'Club or ask the resort for something special. This is the night. Dress up a little.</span></li>
+          <li><span class="li-icon">🌙</span><span>End the night however you want. Terrace, stars, the whole vibe. The island is yours.</span></li>
+        </ul>
+        <div class="day-note"><strong>Birthday Tip:</strong> The resort already has the birthday note from your reservation. Remind them at dinner — a good server will make sure something arrives with a candle.</div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-num">FRI · JUL 24</span>
+        <span class="day-title">Cooking Class & Rastafari Cultural Experience</span>
+        <span class="day-tag tag-culture">🥁 Culture</span>
+        <span class="day-chevron">▼</span>
+      </div>
+      <div class="day-body">
+        <ul>
+          <li><span class="li-icon">🌅</span><span>Good breakfast — this is an active cultural day. Fuel up.</span></li>
+          <li><span class="li-icon">🥁</span><span><strong>Zimbali Mountain Cooking Studio</strong> (Fridays confirmed): Farm tour in the Negril hills → 5-course Jamaican meal → live African drumming. $105/person. ~30 min from your resort. Pre-book through the concierge.</span></li>
+          <li><span class="li-icon">🇯🇲</span><span><strong>Rastafari Cultural Experience:</strong> Afternoon reasoning session with a local Rasta elder or community — Ital food, drumming, real conversation. Let the cooking class flow into the immersion afternoon.</span></li>
+          <li><span class="li-icon">🌿</span><span>If the Rastafari visit includes an Ital dinner, even better. If not, head back to the resort for a quiet evening.</span></li>
+        </ul>
+        <div class="day-note"><strong>Zimbali note:</strong> Zimbali runs Wednesdays and Fridays. Since your birthday falls on Thursday, Friday the 24th is the perfect slot. Pre-book through the concierge as soon as you arrive.</div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-num">SAT · JUL 25</span>
+        <span class="day-title">Bamboo River Rafting + Negril Town Visit</span>
+        <span class="day-tag tag-excursion">🎋 Excursion</span>
+        <span class="day-chevron">▼</span>
+      </div>
+      <div class="day-body">
+        <ul>
+          <li><span class="li-icon">🌅</span><span>Early-ish start — eat before you go. Departure for the Martha Brae River in Trelawny.</span></li>
+          <li><span class="li-icon">🎋</span><span><strong>Bamboo River Rafting:</strong> A 30-ft bamboo raft, just the two of you, guided by a local raftsman who poles you down 3 miles of lush jungle river. Zero adrenaline. Maximum beauty.</span></li>
+          <li><span class="li-icon">🎵</span><span>Your raftsman will talk, share stories, maybe sing. Tip them well — this is their craft.</span></li>
+          <li><span class="li-icon">🚗</span><span>Back by early afternoon — swing through <strong>Negril</strong> on the way home. Seven Mile Beach, craft market, Red Stripe at a beach bar.</span></li>
+          <li><span class="li-icon">🌅</span><span>Rick's Café at sunset if the timing works — cliff divers, rum punch, Caribbean sunset.</span></li>
+          <li><span class="li-icon">🌿</span><span>HedoWeedo at Hedonism II is right there if you want a licensed cannabis run while you're in Negril.</span></li>
+        </ul>
+        <div class="day-note"><strong>Waterproof phone case:</strong> Bring one for the rafting — it's very photogenic. And bring a tip for your raftsman in cash.</div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-num">SUN · JUL 26</span>
+        <span class="day-title">Relax All Day — Full Permission Granted</span>
+        <span class="day-tag tag-chill">🌿 Chill</span>
+        <span class="day-chevron">▼</span>
+      </div>
+      <div class="day-body">
+        <ul>
+          <li><span class="li-icon">😴</span><span>Sleep until your body says stop. This is not a drill.</span></li>
+          <li><span class="li-icon">🏊</span><span>Semi-private pool, O'Club, the beach — wherever the vibe takes you.</span></li>
+          <li><span class="li-icon">💆</span><span>Excellent day for a resort spa treatment. You've had a big week — waterfall, cooking class, rafting. A massage is earned.</span></li>
+          <li><span class="li-icon">🌿</span><span>Strong candidate for an intentional elevated day — the terrace, the hot tub, the Caribbean all around you. No schedule, just the island and each other.</span></li>
+          <li><span class="li-icon">🍽️</span><span>Whichever resort restaurant you haven't tried yet. Or room service on the terrace. No rules.</span></li>
+        </ul>
+        <div class="day-note"><strong>Possibilities tuck-in:</strong> Rocklands Bird Sanctuary (if confirmed open) is a beautiful early-morning add-on — 40 min away, back by 10 AM, rest of the day untouched. Also: marijuana farm tour morning + beach afternoon in Negril is a clean Sunday combo.</div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-num">MON · JUL 27</span>
+        <span class="day-title">Portland Day — Cross the Island</span>
+        <span class="day-tag tag-excursion">🌄 Adventure</span>
+        <span class="day-chevron">▼</span>
+      </div>
+      <div class="day-body">
+        <ul>
+          <li><span class="li-icon">⏰</span><span>Early departure — 7 AM if possible. Portland is 3+ hours away. The earlier you leave, the more island you get. This is the one day where the alarm is worth it.</span></li>
+          <li><span class="li-icon">🌊</span><span><strong>Blue Lagoon</strong> (Port Antonio): The surreal meeting of Caribbean sea and freshwater spring — that impossible turquoise blue. Worth the drive on its own.</span></li>
+          <li><span class="li-icon">🍖</span><span><strong>Boston Bay / Boston Beach</strong>: The birthplace of Jamaican jerk. Eat from the roadside pits — not a restaurant, the actual pits. This is why jerk exists.</span></li>
+          <li><span class="li-icon">🏖️</span><span><strong>Frenchman's Cove</strong>: Minutes from Boston Beach. White sand, a freshwater river flowing into the cove. One of the most beautiful beaches in Jamaica. Small day-pass (~$10–28). Swim here. Linger here.</span></li>
+          <li><span class="li-icon">💦</span><span><strong>Reach Falls</strong> (if time allows): Hidden jungle waterfall with cave swimming. Worth the detour if the day has room.</span></li>
+          <li><span class="li-icon">🚗</span><span>Head home. 3 hours back. Watch the Blue Mountains out the window and let the day sink in.</span></li>
+        </ul>
+        <div class="day-note"><strong>Driver is everything today:</strong> Book a concierge-recommended driver who knows Portland's roads. Ask early — Wednesday or Thursday at the latest. Don't wing it.</div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-num">TUE · JUL 28</span>
+        <span class="day-title">Relax All Day — The Final Exhale</span>
+        <span class="day-tag tag-chill">🌴 Last Full Day</span>
+        <span class="day-chevron">▼</span>
+      </div>
+      <div class="day-body">
+        <ul>
+          <li><span class="li-icon">😴</span><span>Sleep in. You drove across the island yesterday. You earned it twice.</span></li>
+          <li><span class="li-icon">🏊</span><span>Go back to every spot that made you happy this trip. The O'Club, the semi-private pool, the beach. Hit them all one last time.</span></li>
+          <li><span class="li-icon">🥂</span><span>Champagne breakfast or a proper brunch. You're allowed. More than allowed.</span></li>
+          <li><span class="li-icon">♨️</span><span>Long hot tub session on the terrace. Caribbean afternoon light. Take it in.</span></li>
+          <li><span class="li-icon">🛍️</span><span>Last call for souvenirs, Blue Mountain coffee to bring home, anything from the resort gift shop.</span></li>
+          <li><span class="li-icon">🍽️</span><span>Final dinner. Dress up. Make it count. Toast to the trip, to each other, to the fact that you actually did all of this.</span></li>
+          <li><span class="li-icon">🧳</span><span>Pack tonight — not tomorrow morning. Seriously.</span></li>
+        </ul>
+        <div class="day-note"><strong>Possibilities tuck-in:</strong> If Seven Mile Beach or the Sav market haven't happened yet, today is the last chance. Or just stay exactly where you are and feel how good this was.</div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header" onclick="toggleDay(this)">
+        <span class="day-num">WED · JUL 29</span>
+        <span class="day-title">Departure Day — Last Look at Paradise</span>
+        <span class="day-tag tag-travel">✈️ Departure</span>
+        <span class="day-chevron">▼</span>
+      </div>
+      <div class="day-body">
+        <ul>
+          <li><span class="li-icon">⏰</span><span>Check your transfer time and count backwards. Give yourself more buffer than you think you need.</span></li>
+          <li><span class="li-icon">☕</span><span>Last Jamaican coffee. Last look at the ocean from your terrace. Feel it.</span></li>
+          <li><span class="li-icon">🚗</span><span>Transfer to MBJ. About 60–75 minutes. Play your Jamaica playlist on the way out.</span></li>
+          <li><span class="li-icon">✈️</span><span>Club Mobay departure lounge — booked and waiting for you. Open bar, buffet, fast-track security, shower suites. You arrived like royalty, you're leaving like royalty. ✅</span></li>
+        </ul>
+        <div class="day-note"><strong>Jennie's supplies:</strong> Confirm everything is packed securely in carry-on (temperature-sensitive items). Airport to home = controlled environment. You've got this.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="excursions">
+  <div class="section-eyebrow">Pre-Booked & Confirmed</div>
+  <h2>Your Excursions</h2>
+  <p>Two adventures locked in. Intimate jungle waterfall with lunch on your birthday, and a slow romantic river drift through the Jamaican jungle. Together they hit every gear without ever feeling like a tourist checklist.</p>
+
+  <div class="excursion-card" style="border-color: rgba(255,215,0,0.3); margin-top: 24px;">
+    <h3>💦 Mayfield Falls — with Lunch, Drinks & Transport</h3>
+    <div class="excursion-meta">
+      <span class="meta-pill bday-pill">🎂 Joshua's Birthday</span>
+      <span class="meta-pill gold">THU · JULY 23rd</span>
+      <span class="meta-pill">Westmoreland Parish</span>
+      <span class="meta-pill">~45 min from resort</span>
+      <span class="meta-pill">Half Day</span>
+    </div>
+    <p>Mayfield Falls is what Jamaica's waterfall experience actually looks like before the tour buses showed up. A guided river walk upstream through cascades, natural pools, and cool clear jungle water — just you, your guide, and the sound of the falls. Transport, entry, lunch, and drinks all included. Gemstone hunting on the riverbed is a real thing here.</p>
+    <p style="font-size:14px; color: rgba(255,255,255,0.5); margin-bottom:0;">Only ~45 minutes from Green Island — close enough to be back by mid-afternoon with plenty of birthday evening ahead of you.</p>
+  </div>
+
+  <div class="excursion-card">
+    <h3>🎋 Bamboo River Rafting — Martha Brae</h3>
+    <div class="excursion-meta">
+      <span class="meta-pill gold">SAT · JULY 25th</span>
+      <span class="meta-pill">Trelawny Parish</span>
+      <span class="meta-pill">Half Day</span>
+      <span class="meta-pill">Romantic</span>
+    </div>
+    <p>A 30-foot bamboo raft, just the two of you, gliding down 3 miles of the Martha Brae River through deep jungle canopy. Your raftsman poles and steers, tells you stories, and makes the experience feel genuinely personal. The water is clear, the pace is slow, and there's nowhere else to be.</p>
+    <p style="font-size:14px; color: rgba(255,255,255,0.5); margin-bottom:0;">Bring a waterproof phone case — it's very photogenic. Tip your raftsman well. This is their craft, literally.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="culture">
+  <div class="section-eyebrow">Optional Add-Ons</div>
+  <h2>Cultural Immersion Near Negril</h2>
+  <div class="vibes-grid" style="margin-top: 24px;">
+    <div class="vibe-card">
+      <h4>🥁 Zimbali Mountain Cooking Studio</h4>
+      <p>Farm-to-table experience high in the Negril hills. Farm tour → 5-course Jamaican meal → live African drumming. Wednesdays and Fridays. $105/person. Pre-book through your concierge.</p>
+      <div class="contact">~30 min from resort · $105/pp</div>
+    </div>
+    <div class="vibe-card">
+      <h4>🔥 Irie Village and Farm</h4>
+      <p>Traditional Jamaican cooking in a mountain setting using outdoor wood-fire stoves. Local ingredients, local techniques, real hospitality. Call ahead — this isn't ticketed online.</p>
+      <div class="contact">Call ahead to book · Mountain setting</div>
+    </div>
+    <div class="vibe-card">
+      <h4>🧺 Basket Weaving</h4>
+      <p>Head to the Negril Craft Market and ask your concierge to arrange a hands-on basket weaving session with a local artisan. Set up through a guide or local connection.</p>
+      <div class="contact">Via concierge / local guide</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="vibes">
+  <div class="section-eyebrow">Elevated Experiences</div>
+  <h2>The Vibe Supply Chain 🌿🍄</h2>
+  <p>Jamaica's relationship with cannabis is deeply cultural — this is Bob Marley's island. Psilocybin mushrooms exist in the informal market and are easy to source through the right channels. Do not bring either across international borders. Source locally.</p>
+  <div style="margin-top: 24px;">
+    <div class="source-card">
+      <h4>🍄 mushroomstoreja.com</h4>
+      <p style="font-size:14px; color:rgba(255,255,255,0.88); margin-bottom:8px;">Island-wide delivery including the Negril/Green Island corridor. Covers both cannabis and psilocybin mushrooms.</p>
+      <div class="detail">📧 mushroomstoreja@gmail.com · 📞 +1-658-207-6452</div>
+    </div>
+    <div class="source-card">
+      <h4>🌿 jybejm.com</h4>
+      <p style="font-size:14px; color:rgba(255,255,255,0.88); margin-bottom:8px;">WhatsApp-based ordering service. Delivery to your area. Good for cannabis in particular.</p>
+      <div class="detail">Order via WhatsApp — details on their site</div>
+    </div>
+    <div class="source-card">
+      <h4>🏪 HedoWeedo at Hedonism II — Negril</h4>
+      <p style="font-size:14px; color:rgba(255,255,255,0.88); margin-bottom:8px;">Licensed dispensary on-site at Hedonism II. Walk-in. ~20 min from your resort.</p>
+      <div class="detail">~20 min from resort · Negril · Licensed cannabis dispensary</div>
+    </div>
+  </div>
+  <div class="day-note" style="margin-top: 18px;"><strong>Note on LSD:</strong> Significantly harder to source in Jamaica than plant-based options. Stick with what the island offers — it's more than enough.</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="c5">
+  <div class="section-eyebrow">Pre-Departure Requirement</div>
+  <h2>C5 Immigration Form 📋</h2>
+  <p>Mandatory for all travelers entering Jamaica. Each person fills out their own. Completely free.</p>
+  <div class="info-block">
+    <h4>What You Need to Know</h4>
+    <p>✅ Fill it out at <a class="external" href="https://enterjamaica.gov.jm" target="_blank">enterjamaica.gov.jm</a> — the only free, official source.</p>
+    <p>✅ Joshua and Jennie each fill out a separate form.</p>
+    <p>✅ Complete within 72 hours of your departure (July 21st). Google Calendar reminder set for July 20th at 6:00 PM MT with Jennie included.</p>
+    <p>✅ You'll need: passport info, flight details, accommodation address (Princess Senses The Mangrove, Green Island, Hanover), and estimate of cash/goods.</p>
+    <p>✅ You'll receive a QR code — screenshot it. Show this at immigration.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="clubmobay">
+  <div class="section-eyebrow">Booked & Confirmed — Both Ways</div>
+  <h2>Club Mobay ✈️</h2>
+  <p>Arrival AND departure — locked in. Sangster International in peak July is a zoo for everyone else. Not for you two.</p>
+
+  <div style="margin-top: 32px;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px; flex-wrap:wrap;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.35rem; color:var(--gold-light);">🛬 Club Mobay Arrival</h3>
+      <span style="font-family:'Space Mono',monospace; font-size:11px; padding:4px 12px; border-radius:20px; background:rgba(168,224,99,0.12); border:1px solid rgba(168,224,99,0.4); color:var(--lime);">✅ BOOKED</span>
+    </div>
+    <p style="margin-bottom:18px;">Gate-to-exit escort, priority immigration and customs (under 15 min vs. 45–90 for everyone else), baggage porter, and seamless handoff to your ground transfer.</p>
+    <div class="card-grid">
+      <div class="card"><span class="card-icon">🏃</span><h3>Gate-to-Exit Escort</h3><p>A dedicated rep meets you at the gate and personally escorts you through every checkpoint.</p></div>
+      <div class="card"><span class="card-icon">⚡</span><h3>Priority Immigration</h3><p>Fast-track lanes — what takes others 45–90 minutes takes you under 15.</p></div>
+      <div class="card"><span class="card-icon">🧳</span><h3>Baggage Assistance</h3><p>Porter service through the terminal to your waiting transfer.</p></div>
+      <div class="card"><span class="card-icon">🚗</span><h3>Seamless Transfer Handoff</h3><p>Handed directly to your ground transfer to Green Island. Zero airport limbo.</p></div>
+    </div>
+    <div class="day-note" style="margin-top:18px;"><strong>Pro tip:</strong> Have your C5 QR codes ready on your phones before you land. Your rep will move fast.</div>
+  </div>
+
+  <div style="margin-top: 42px;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px; flex-wrap:wrap;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.35rem; color:var(--gold-light);">🛫 Club Mobay Departure</h3>
+      <span style="font-family:'Space Mono',monospace; font-size:11px; padding:4px 12px; border-radius:20px; background:rgba(168,224,99,0.12); border:1px solid rgba(168,224,99,0.4); color:var(--lime);">✅ BOOKED</span>
+    </div>
+    <p style="margin-bottom:18px;">Open bar, real food, AC, and zero line stress. Go out the way you came in.</p>
+    <div class="card-grid">
+      <div class="card"><span class="card-icon">🍹</span><h3>Complimentary Open Bar</h3><p>Full open bar — rum punch, cocktails, beer. Your last Jamaican drink should be a good one.</p></div>
+      <div class="card"><span class="card-icon">🍽️</span><h3>Hot & Cold Buffet</h3><p>Reviewers call it "positively crazy-amazing" for an airport lounge. Don't skip it.</p></div>
+      <div class="card"><span class="card-icon">⚡</span><h3>Fast-Track Security</h3><p>Dedicated rep through priority lanes. No queue. No chaos.</p></div>
+      <div class="card"><span class="card-icon">🚿</span><h3>Shower Suites + WiFi</h3><p>Freshen up before your flight. Or sit in AC and scroll through your photos.</p></div>
+    </div>
+    <div class="day-note" style="margin-top:18px;"><strong>Last Jamaica moment:</strong> Order a rum punch the second you sit down. Toast to the trip. You earned every sip. 🍹🇯🇲</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="logistics">
+  <div class="section-eyebrow">The Details That Matter</div>
+  <h2>Logistics & Tips 🗺️</h2>
+  <div class="card-grid">
+    <div class="card"><span class="card-icon">🌡️</span><h3>July Weather</h3><p>Hot, humid, occasionally showery. Low-to-mid 90s°F. Pack light, breathable clothing. Sunscreen is not optional.</p></div>
+    <div class="card"><span class="card-icon">💊</span><h3>Jennie's Supplies</h3><p>Split across two bags. Keep temperature-sensitive items in the room's coolest spot or mini-fridge. Hydrate more than usual.</p></div>
+    <div class="card"><span class="card-icon">💵</span><h3>Money</h3><p>All-inclusive covers resort food/drinks. Bring USD cash for tips, local market purchases, and off-resort outings. Tip culture matters.</p></div>
+    <div class="card"><span class="card-icon">📱</span><h3>Connectivity</h3><p>Check if your carrier has Jamaica coverage or consider an eSIM. Off-resort excursions are when you'll want data for maps and WhatsApp.</p></div>
+    <div class="card"><span class="card-icon">🚗</span><h3>Getting Around</h3><p>Arrange taxis/car service through the resort concierge — they have trusted drivers. Don't hail random taxis. Know who your driver is.</p></div>
+    <div class="card"><span class="card-icon">🏝️</span><h3>July 29th is the Day</h3><p>No extension possible — July 29th is the hard out. Leave nothing on the table.</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="possibilities">
+  <div class="section-eyebrow">Still On The Table</div>
+  <h2>The Possibilities Are Endless ✨</h2>
+  <p>These are the ideas worth researching before you go. Nothing confirmed. Everything possible. Cost estimates at top of each card — ballpark figures, will vary by operator and group size.</p>
+
+  <div style="margin-top: 28px;">
+
+    <div class="possibility-card">
+      <div class="poss-header"><span class="poss-icon">🇯🇲</span><h3>Rastafari Cultural Experience</h3><span class="poss-status">🔍 Research Needed</span></div>
+      <div class="poss-cost">💵 Est. $40–$120 per person</div>
+      <p>A genuine immersion — not a tourist show. Real encounter with the people, philosophy, food, drumming, and reasoning. The goal: show up as someone who actually knows something about what they're entering.</p>
+      <ul class="research-list">
+        <li>Rastafari Indigenous Village, Montego Bay — community-run, ~75 min from resort. $40–$60/person.</li>
+        <li>Ask concierge for a local Rasta elder or community contact in Negril — the informal version is often more powerful.</li>
+        <li>Inquire about Nyahbinghi drumming sessions happening during your stay.</li>
+        <li>Find an Ital food spot in Negril run by a Rasta family. A full meal is typically $10–$20/person.</li>
+        <li>Approach: curiosity + humility. Know about Selassie, Babylon/Zion, livity. Don't touch the locs.</li>
+      </ul>
+    </div>
+
+    <div class="possibility-card">
+      <div class="poss-header"><span class="poss-icon">🌄</span><h3>Travel to Portland — Cross the Island</h3><span class="poss-status">🔍 Research Needed</span></div>
+      <div class="poss-cost">💵 Est. $150–$300 per couple (full day, driver + entries)</div>
+      <p>Portland Parish on Jamaica's northeastern coast — arguably the most beautiful and least touristy part of the island. The Jamaica most resort visitors never see. 3-hour drive from Green Island.</p>
+      <ul class="research-list">
+        <li>Blue Lagoon — Caribbean sea meets freshwater spring, otherworldly blue-green water. Entry ~$5–$10/person.</li>
+        <li><strong>Boston Beach (Boston Bay)</strong> — birthplace of Jamaican jerk. Roadside pits. Entry ~$2–3/person, jerk plates $8–$15.</li>
+        <li><strong>Frenchman's Cove</strong> — one of the most beautiful beaches in Jamaica, freshwater river flowing into the cove. Day-pass ~$10–28/person.</li>
+        <li>Reach Falls — hidden jungle waterfall with cave swimming. Entry ~$10–15/person.</li>
+        <li>Full-day private driver typically $120–$200. Roads are an adventure — don't solo rent.</li>
+        <li>Best with early departure (7 AM) to maximize time and beat heat.</li>
+      </ul>
+    </div>
+
+    <div class="possibility-card">
+      <div class="poss-header"><span class="poss-icon">🏖️</span><h3>Beach Tour — Seven Mile Beach & Beyond</h3><span class="poss-status">🔍 Research Needed</span></div>
+      <div class="poss-cost">💵 Est. $0–$60 per couple (mostly drinks & taxi)</div>
+      <p>Seven Mile Beach is only ~20 minutes from your resort and deserves its own dedicated time. Easy half-day or sunset run.</p>
+      <ul class="research-list">
+        <li>Seven Mile Beach — the postcard Jamaica beach. Public access is free; budget $20–$40/couple for drinks.</li>
+        <li>Rick's Café at the south end for sunset and cliff diving.</li>
+        <li>Research: best public access points vs. resort-controlled stretches.</li>
+        <li>Frenchman's Cove and Boston Beach are the alternative if you want the cultural/jerk angle over Seven Mile's party energy.</li>
+      </ul>
+    </div>
+
+    <div class="possibility-card">
+      <div class="poss-header"><span class="poss-icon">💦</span><h3>Waterfall Tour — Beyond Mayfield</h3><span class="poss-status">🔍 Research Needed</span></div>
+      <div class="poss-cost">💵 Est. $80–$200 per couple (entry + transport)</div>
+      <p>You're already doing Mayfield Falls on the birthday — but Jamaica has an embarrassment of waterfall riches. This rabbit hole goes deep.</p>
+      <ul class="research-list">
+        <li><strong>YS Falls</strong> (St. Elizabeth) — multi-tiered, rope swings, zipline. Often called the most beautiful in Jamaica. ~90 min. Entry ~$25–$30/person.</li>
+        <li><strong>Reach Falls</strong> (Portland) — pairs with the Portland day trip. Hidden jungle waterfall with cave swimming. Entry ~$10–15/person.</li>
+        <li><strong>Nonpareil Waterfalls</strong> — very off the beaten path, near Negril. Ask your concierge or driver.</li>
+      </ul>
+    </div>
+
+    <div class="possibility-card">
+      <div class="poss-header"><span class="poss-icon">🏡</span><h3>If You're Thinking About Living Here</h3><span class="poss-status">🔍 Research Needed</span></div>
+      <div class="poss-cost">💵 Est. $50–$150 per couple (mostly driver time, low entry costs)</div>
+      <p>The reconnaissance mission version of the trip — places that show you how people who actually live here go about a normal day. No script, no souvenir photographers.</p>
+      <ul class="research-list">
+        <li><strong>Savanna-la-Mar market day</strong> (~30 min) — working parish capital of Westmoreland. Produce stalls, fish off the boats, spice vendors. Free to walk; budget $20–$30 for fresh food.</li>
+        <li><strong>Drive toward Treasure Beach</strong> (St. Elizabeth, ~1.5–2 hrs) — quiet fishing villages, working farmland. A real expat/artist community that chose it specifically because it isn't touristy. Budget $20–$30/couple for a local lunch.</li>
+        <li>Research: can this be a loop day (Sav market morning + Treasure Beach afternoon) or better split?</li>
+      </ul>
+    </div>
+
+    <div class="possibility-card">
+      <div class="poss-header"><span class="poss-icon">🌱</span><h3>Marijuana Farm Tour — Orange Hill</h3><span class="poss-status">🔍 Research Needed</span></div>
+      <div class="poss-cost">💵 Est. $80–$180 per couple (transport + entry, sampling usually included)</div>
+      <p>Orange Hill in Westmoreland — the heartland of Jamaican cannabis cultivation, about 20 minutes from Negril. Working hillside community of legacy growers. Tours run by people who've been doing this for generations.</p>
+      <ul class="research-list">
+        <li>Guided walk through an outdoor cannabis farm — seed to harvest, cultivation techniques, strain history. 1–2 hours on-site.</li>
+        <li>Decriminalized since 2015 for small amounts; licensed farms can sell on-site. Sampling component usually included.</li>
+        <li>Combo options: several operators pair with mineral spring swim and/or Rick's Café sunset. Combo packages run $125–$165/person.</li>
+        <li>Operators: Toke & Tour (Roaring River/Orange Hill, ital lunch options), Wabba's Weed Adventure (paired with Blue Hole mineral spring).</li>
+      </ul>
+    </div>
+
+    <div class="possibility-card">
+      <div class="poss-header"><span class="poss-icon">🦜</span><h3>Rocklands Bird Sanctuary</h3><span class="poss-status">🔍 Research Needed</span></div>
+      <div class="poss-cost">💵 Est. $25–$35 per person</div>
+      <p>One of Jamaica's most quietly magical experiences. Near Anchovy (~40 min from Green Island). Wild Jamaican birds — including the Doctor Bird, Jamaica's national bird — will literally land on your hand to feed.</p>
+      <ul class="research-list">
+        <li><strong>The Doctor Bird:</strong> The Red-billed Streamertail hummingbird — iridescent green with a long trailing black tail. Jamaica's national bird. You will probably get one on your finger.</li>
+        <li>Small, intimate property. No crowds. Genuinely unlike anything else on the tourist circuit.</li>
+        <li><strong>Heads up:</strong> Rocklands sustained hurricane damage and has had partial closures — confirm operating status before you go. May be by appointment only.</li>
+        <li>Best timing: early morning or late afternoon when birds are most active.</li>
+      </ul>
+    </div>
+
+    <div class="possibility-card">
+      <div class="poss-header"><span class="poss-icon">💃</span><h3>Jamaican Dance Classes</h3><span class="poss-status">🔍 Research Needed</span></div>
+      <div class="poss-cost">💵 Est. $30–$80 per person</div>
+      <p>Dancehall is not a genre — it's a culture. Dutty Wine, Bogle, Shelly Belly. Learning from an actual Jamaican instructor is the kind of thing that gets referenced for years. You will be bad at it. You will also love every second.</p>
+      <ul class="research-list">
+        <li>Ask the concierge specifically for a local dancehall instructor — not a resort entertainment program.</li>
+        <li>Negril: ask at Alfred's Ocean Palace or Roots Bamboo whether performers teach — many do on the side.</li>
+        <li>1–2 hour private session for just the two of you. Some instructors will come to your resort or a nearby beach.</li>
+        <li>Alternative: traditional Jamaican folk dance (Jonkonnu, Kumina, Mento) — more cultural, more connected to the African and Rastafari roots of the island.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="concierge">
+  <div class="section-eyebrow">Work The Room</div>
+  <h2>Questions for the Concierge 🛎️</h2>
+  <p>Use these at check-in or as early in the trip as possible. The best experiences require lead time.</p>
+
+  <div style="margin-top: 28px;">
+    <div class="question-block"><span class="q-num">Q 01</span><div class="q-text">"Can you connect us with someone who has a genuine relationship with the Rastafari community — not a tourist tour, but a real cultural encounter? We want to sit with elders, experience a reasoning session, eat Ital food. Who do you know?"</div><div class="q-why">This signals you know the difference between authentic and performative. A good concierge will have a contact. A bad one will hand you a brochure — in which case, ask a different staff member.</div></div>
+    <div class="question-block"><span class="q-num">Q 02</span><div class="q-text">"Who's the best trusted driver you personally recommend for a full-day trip — someone who knows the island well, is safe, and makes the ride an experience rather than just transport?"</div><div class="q-why">You'll need a driver for Portland and possibly Negril outings. A concierge-recommended driver is infinitely more valuable than a random taxi. Get the name, save the number, tip well.</div></div>
+    <div class="question-block"><span class="q-num">Q 03</span><div class="q-text">"What's the closest waterfall to us that most guests never bother going to? Something local, not on the main tour circuit."</div><div class="q-why">This rewards curiosity over the standard excursion list. The concierge may know something even closer or more special than what's online.</div></div>
+    <div class="question-block"><span class="q-num">Q 04</span><div class="q-text">"We're thinking about a full-day trip to Portland — Blue Lagoon, Reach Falls, Boston Bay jerk. Is that doable in one day from here, and who would you trust to drive us?"</div><div class="q-why">Portland is 3+ hours away. The concierge will know road conditions in July and whether a driver does this route regularly.</div></div>
+    <div class="question-block"><span class="q-num">Q 05</span><div class="q-text">"Is Zimbali Mountain Cooking Studio running while we're here — and can you book it for us? We want the full experience with the drumming."</div><div class="q-why">Zimbali runs Wednesdays and Fridays. Book through the concierge who has the relationship. Don't just show up.</div></div>
+    <div class="question-block"><span class="q-num">Q 06</span><div class="q-text">"Where do locals actually eat in Green Island and Negril — not the tourist spots, the places where the food is real and nobody speaks English with an American accent?"</div><div class="q-why">The best Jamaican food is in someone's yard or a roadside spot with four tables. Push past the safe tourist answer.</div></div>
+    <div class="question-block"><span class="q-num">Q 07</span><div class="q-text">"It's my birthday on July 23rd — we mentioned it in our reservation. What do you have in mind for us?"</div><div class="q-why">You already put it in the notes. This gently activates whoever needs to make the birthday dinner or room treatment happen. Don't be shy.</div></div>
+    <div class="question-block"><span class="q-num">Q 08</span><div class="q-text">"Is there live roots reggae — not a cover band, actual Rastafari or reggae musicians — anywhere nearby in the evenings while we're here?"</div><div class="q-why">Alfred's Ocean Palace and Roots Bamboo in Negril are the known options, but the concierge may know something more intimate or local.</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="driver">
+  <div class="section-eyebrow">Your Man on the Ground</div>
+  <h2>Topics for the Driver 🚗</h2>
+  <p>Your driver is not just transport — he's a living encyclopedia of the island. The drive from Green Island to anywhere is 45 minutes minimum. Use it.</p>
+
+  <div style="margin-top: 28px;">
+    <div class="driver-block"><span class="q-num">01</span><div class="q-text">"Where are you from, and where do you actually eat — like where do YOU go for jerk chicken?"</div><div class="q-why">This opens everything. Portland jerk vs. Negril jerk is a real conversation. His answer tells you more about where to eat than any travel blog.</div></div>
+    <div class="driver-block"><span class="q-num">02</span><div class="q-text">"What do you think about Rastafari — is it something people in your community take seriously, or is it more of a cultural thing at this point?"</div><div class="q-why">Nuanced and respectful. May lead to him offering an introduction, or sharing something personal about the tradition you wouldn't get from a tour guide script.</div></div>
+    <div class="driver-block"><span class="q-num">03</span><div class="q-text">"What's the most beautiful place on this island that tourists almost never go to?"</div><div class="q-why">Every driver has an answer and it's almost always a gem. Give him a second to think. Don't rush to the next question.</div></div>
+    <div class="driver-block"><span class="q-num">04</span><div class="q-text">"We're thinking about making the drive to Portland — Blue Lagoon, Reach Falls, Boston Bay. Would you take us? What should we know?"</div><div class="q-why">This is where you gauge if he's the right guy for a full-day adventure. He'll know the timing, the stops, and the jerk stand worth the detour.</div></div>
+    <div class="driver-block"><span class="q-num">05</span><div class="q-text">"What's something about Jamaica that you wish tourists understood but almost none of them do?"</div><div class="q-why">The question that makes someone feel genuinely seen. Whatever he says, listen. This is the real thing.</div></div>
+    <div class="driver-block"><span class="q-num">06</span><div class="q-text">"Tell me about the herb here — culturally, historically, what it means to Jamaicans beyond the tourist version of it."</div><div class="q-why">Opens a conversation about Rastafari, Jamaican identity, and the culture that produced reggae. Read the energy and let it breathe.</div></div>
+    <div class="driver-block"><span class="q-num">07</span><div class="q-text">"What's happening on the island right now that's actually exciting — music, events, anything?"</div><div class="q-why">Jamaica has a rich live events culture and almost none of it is advertised where tourists look. This is how you end up at something real.</div></div>
+    <div class="driver-block"><span class="q-num">08</span><div class="q-text">"What's the one thing you'd tell two people on their first real Jamaica trip — not the travel guide version, your actual advice?"</div><div class="q-why">End with this one. It's a gift to give someone — being asked for their genuine wisdom. Whatever he says: remember it. He's been right this whole time.</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer>
+  <span class="footer-logo">Jamaica Playbook</span>
+  <p>Joshua & Jennie · July 21–29, 2026 · Green Island, Jamaica</p>
+  <p style="margin-top: 8px; opacity: 0.4;">One love. 🇯🇲</p>
+</footer>
+
+<script>
+  function toggleDay(header) {
+    const card = header.closest('.day-card');
+    card.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
