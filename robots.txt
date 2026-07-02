@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /vacay/
 
 Sitemap: https://livarya.ai/sitemap.xml
