@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Livarya</title>
+  <meta name="description" content="Terms governing use of livarya.ai and Livarya's AI adoption consulting services." />
+  <link rel="canonical" href="https://livarya.ai/terms/" />
+
+  <meta property="og:title" content="Terms of Service — Livarya" />
+  <meta property="og:description" content="Terms governing use of livarya.ai and Livarya's AI adoption consulting services." />
+  <meta property="og:image" content="https://livarya.ai/og-image.png" />
+  <meta property="og:url" content="https://livarya.ai/terms/" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Terms of Service — Livarya" />
+  <meta name="twitter:description" content="Terms governing use of livarya.ai and Livarya's AI adoption consulting services." />
+  <meta name="twitter:image" content="https://livarya.ai/og-image.png" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0D1B2A;
+      --orange: #FF9900;
+      --green: #64DC32;
+      --white: #F8F6F1;
+      --muted: rgba(248, 246, 241, 0.55);
+      --border: rgba(248, 246, 241, 0.12);
+    }
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      top: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(100,220,50,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    nav {
+      padding: 2rem 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .wordmark span { color: var(--orange); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .nav-link {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--white);
+      text-decoration: none;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-link:hover { color: var(--orange); }
+    .nav-link.active {
+      color: var(--orange);
+      border-bottom-color: var(--orange);
+    }
+    section {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .hero { padding: 4rem 0 1rem; animation-delay: 0.1s; }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5.5vw, 2.75rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .policy-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .divider {
+      width: 40px; height: 2px;
+      background: var(--orange);
+      margin: 1.5rem 0 2.5rem;
+    }
+    .content-section { padding: 1.5rem 0; animation-delay: 0.2s; }
+    .section-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.85rem;
+    }
+    .section-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .section-body:last-child { margin-bottom: 0; }
+    .section-body strong { color: var(--white); font-weight: 400; }
+    .section-body a {
+      color: var(--white);
+      text-decoration: underline;
+      text-decoration-color: var(--border);
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+    .section-body a:hover { color: var(--orange); text-decoration-color: var(--orange); }
+    .bullet-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.85rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .bullet-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+    footer {
+      padding: 3rem 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    .footer-left {
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+    .footer-right { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    .footer-link {
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.6;
+      text-decoration: none;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .footer-link:hover { opacity: 1; color: var(--white); }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 560px) {
+      nav { flex-wrap: wrap; gap: 1rem; }
+      .nav-links { gap: 1.25rem; flex-wrap: wrap; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-right { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <nav>
+      <a href="/" class="wordmark">LIVARYA<span>.</span></a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/smb-workshop/" class="nav-link">SMB Workshop</a>
+        <a href="/1-1-sessions/" class="nav-link">1:1 Sessions</a>
+        <a href="/#about" class="nav-link">About</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <h1>Terms of Service</h1>
+      <p class="policy-meta">Last updated: July 2026</p>
+      <p class="section-body">
+        These Terms govern your use of livarya.ai and any consulting services
+        ("Services") provided by Livarya, a DBA of Joshu.AI, LLC, a Colorado
+        limited liability company.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="content-section">
+      <h2 class="section-heading">Services</h2>
+      <p class="section-body">
+        Livarya provides AI adoption consulting, including SMB workshops,
+        public cohorts, and 1:1 consulting sessions, as described on this
+        website. Specific scope, pricing, and deliverables for each engagement
+        are agreed upon directly between Livarya and the client prior to
+        service delivery.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Booking and payment</h2>
+      <p class="section-body">
+        Workshop engagements require a 50% deposit to confirm the scheduled
+        date, with the balance due on the day of delivery or within 14 days.
+        1:1 sessions may be booked as single sessions or prepaid hour blocks.
+        Specific payment terms will be confirmed at the time of booking.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Nature of advice</h2>
+      <p class="section-body">
+        Livarya provides general business and technology adoption guidance.
+        This guidance is not legal, financial, tax, or regulatory advice, and
+        clients should consult appropriate professionals for advice specific to
+        their circumstances. Outcomes from implementing AI tools or adoption
+        strategies will vary by business and are not guaranteed.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Intellectual property</h2>
+      <p class="section-body">
+        Materials created specifically for a client engagement (e.g., a custom
+        90-Day AI Action Plan) become the property of the client upon full
+        payment. Livarya retains ownership of its general methodology,
+        curriculum, and pre-existing materials, and may reuse general
+        frameworks and non-confidential insights across engagements.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Cancellations</h2>
+      <p class="section-body">
+        Cancellation and rescheduling terms will be specified at the time of
+        booking. Deposits may be non-refundable depending on timing of
+        cancellation.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Limitation of liability</h2>
+      <p class="section-body">
+        To the maximum extent permitted by law, Livarya's total liability
+        arising from any engagement is limited to the fees paid for that
+        specific engagement. Livarya is not liable for indirect, incidental,
+        or consequential damages arising from use of our services or
+        implementation of our recommendations.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Governing law</h2>
+      <p class="section-body">
+        These Terms are governed by the laws of the State of Colorado.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Contact</h2>
+      <p class="section-body">
+        <a href="mailto:joshua@livarya.ai">joshua@livarya.ai</a>
+      </p>
+    </section>
+
+    <footer>
+      <span class="footer-left">&copy; 2026 Joshu.AI, LLC dba Livarya. All rights reserved.</span>
+      <div class="footer-right">
+        <a href="https://linkedin.com/company/livarya" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/LivaryaAI" class="footer-link" target="_blank" rel="noopener">X</a>
+        <a href="mailto:hello@livarya.ai" class="footer-link">Contact</a>
+        <a href="/privacy/" class="footer-link">Privacy Policy</a>
+        <a href="/terms/" class="footer-link">Terms of Service</a>
+        <a href="/ai-ethics/" class="footer-link">AI Ethics &amp; Transparency</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
