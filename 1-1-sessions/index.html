@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1:1 AI Fluency Sessions — Livarya</title>
+  <meta name="description" content="Dedicated, hands-on AI guidance built around your actual work. Book a 1:1 AI fluency session with Joshua George." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0D1B2A;
+      --orange: #FF9900;
+      --green: #64DC32;
+      --white: #F8F6F1;
+      --muted: rgba(248, 246, 241, 0.55);
+      --border: rgba(248, 246, 241, 0.12);
+    }
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      top: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(100,220,50,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    nav {
+      padding: 2rem 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .wordmark span { color: var(--orange); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .nav-link {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--white);
+      text-decoration: none;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-link:hover { color: var(--orange); }
+    .nav-link.active {
+      color: var(--orange);
+      border-bottom-color: var(--orange);
+    }
+    section {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .hero { padding: 4.5rem 0 2.5rem; animation-delay: 0.1s; }
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px; height: 1px;
+      background: var(--green);
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.25rem, 6vw, 3.25rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+    .pull-quote {
+      border-left: 3px solid var(--orange);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: var(--white);
+      max-width: 640px;
+    }
+    .divider {
+      width: 40px; height: 2px;
+      background: var(--orange);
+      margin: 2.5rem 0;
+    }
+    .content-section { padding: 1.75rem 0; animation-delay: 0.2s; }
+    .section-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .section-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 680px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .info-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.025);
+      padding: 1.75rem;
+    }
+    .info-card-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+    .info-card-body {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .price-card { text-align: center; }
+    .price-card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .price-card-value {
+      font-size: 1.1rem;
+      color: var(--white);
+      font-weight: 400;
+    }
+    .cta-band {
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      width: 100vw;
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+      padding: 4rem 2rem;
+      text-align: center;
+      animation-delay: 0.3s;
+    }
+    .cta-band-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      margin-bottom: 1.75rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--navy);
+      border: none;
+      border-radius: 6px;
+      padding: 1rem 2.25rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover { background: #e68a00; }
+    .btn-primary:active { transform: scale(0.98); }
+    .cta-caption {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+    footer {
+      padding: 3rem 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    .footer-left {
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+    .footer-right { display: flex; gap: 1.25rem; }
+    .footer-link {
+      font-size: 0.8rem;
+      color: var(--muted);
+      opacity: 0.6;
+      text-decoration: none;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .footer-link:hover { opacity: 1; color: var(--white); }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 768px) {
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      nav { flex-wrap: wrap; gap: 1rem; }
+      .nav-links { gap: 1.25rem; flex-wrap: wrap; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .info-card { padding: 1.5rem; }
+      .cta-band { padding: 3rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-right { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <nav>
+      <a href="/" class="wordmark">LIVARYA<span>.</span></a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/1-1-sessions/" class="nav-link active">1:1 Sessions</a>
+        <a href="/#about" class="nav-link">About</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <h1>1:1 AI Fluency Sessions</h1>
+      <p class="hero-sub">Dedicated, hands-on AI guidance — built around your actual work.</p>
+      <p class="pull-quote">
+        "I spent 18 years in sales helping businesses adopt technology. Now I help
+        them do the same with AI — by showing them how to use it themselves first."
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="content-section">
+      <h2 class="section-heading">What this is</h2>
+      <p class="section-body">
+        A focused, one-on-one working session where we sit down with the tools you
+        already have — Microsoft Copilot, ChatGPT, Claude, whatever your company
+        already pays for — and apply them to a real task you're dealing with right
+        now. Not a lecture. Not a generic demo. Live, hands-on work on your actual
+        email, report, workflow, or project.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Who it's for</h2>
+      <p class="section-body">
+        Individuals or small teams who want personalized guidance beyond a group
+        workshop or cohort — whether you're just starting out with AI or already
+        using it and want to go deeper.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">How it works</h2>
+      <div class="grid-3">
+        <div class="info-card">
+          <p class="info-card-label">Before</p>
+          <p class="info-card-body">Quick intake form — tells me what you're working on and what tools you have access to.</p>
+        </div>
+        <div class="info-card">
+          <p class="info-card-label">During (60 min)</p>
+          <p class="info-card-body">We work live on your real task, and build 2–3 reusable prompts or workflows together.</p>
+        </div>
+        <div class="info-card">
+          <p class="info-card-label">After</p>
+          <p class="info-card-body">You get a one-page summary within 24 hours: the exact prompts/workflows built, plus one next step to try.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">Pricing</h2>
+      <div class="grid-2">
+        <div class="info-card price-card">
+          <p class="price-card-title">Single Session</p>
+          <p class="price-card-value">$200–350 / hour</p>
+        </div>
+        <div class="info-card price-card">
+          <p class="price-card-title">Prepaid Block (3–5 hrs)</p>
+          <p class="price-card-value">Modest discount, invoiced up front</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2 class="section-heading">What you walk away with</h2>
+      <p class="section-body">
+        Not a slide deck. A working method — something you can open tomorrow and
+        use on the next version of the same task.
+      </p>
+    </section>
+
+    <section class="cta-band">
+      <h2 class="cta-band-heading">Ready to get hands-on with AI?</h2>
+      <a href="mailto:joshua@livarya.ai?subject=Interested%20in%20booking%201%3A1" class="btn-primary">Book a 1:1 Session</a>
+      <p class="cta-caption">Opens an email to joshua@livarya.ai</p>
+    </section>
+
+    <footer>
+      <span class="footer-left">&copy; 2026 Joshu.AI, LLC &mdash; DBA Livarya</span>
+      <div class="footer-right">
+        <a href="https://linkedin.com/company/livarya" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/LivaryaAI" class="footer-link" target="_blank" rel="noopener">X</a>
+        <a href="mailto:hello@livarya.ai" class="footer-link">Contact</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
