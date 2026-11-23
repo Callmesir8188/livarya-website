@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enough with Etsy — A marketplace that never trains AI on your work</title>
+  <meta name="description" content="Etsy's new terms let it train AI on your listings starting December 16. We're building a handmade marketplace that puts 'never train AI on your work' in writing. Join the founding seller waitlist." />
+  <link rel="canonical" href="https://livarya.ai/EnoughWithEtsy/" />
+
+  <meta property="og:title" content="Enough with Etsy." />
+  <meta property="og:description" content="A marketplace for human makers that will never train AI on your work — in writing. Join the founding seller waitlist." />
+  <meta property="og:image" content="https://livarya.ai/og-image.png" />
+  <meta property="og:url" content="https://livarya.ai/EnoughWithEtsy/" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Enough with Etsy." />
+  <meta name="twitter:description" content="A marketplace for human makers that will never train AI on your work — in writing. Join the founding seller waitlist." />
+  <meta name="twitter:image" content="https://livarya.ai/og-image.png" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0D1B2A;
+      --orange: #FF9900;
+      --green: #64DC32;
+      --white: #F8F6F1;
+      --muted: rgba(248, 246, 241, 0.62);
+      --border: rgba(248, 246, 241, 0.12);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      top: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,153,0,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    nav {
+      padding: 2rem 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .wordmark span { color: var(--orange); }
+    .nav-cta {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--orange);
+      text-decoration: none;
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 0.3rem;
+    }
+    .reveal { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease forwards; }
+    .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.3s; } .d3 { animation-delay: 0.5s; } .d4 { animation-delay: 0.7s; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { animation: none; opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    .hero { padding: 4.5rem 0 2.5rem; }
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px; height: 1px;
+      background: var(--green);
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.75rem, 9vw, 4.75rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+    }
+    h1 em { font-style: italic; color: var(--orange); }
+    .lede {
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 600px;
+    }
+    .lede strong { color: var(--white); font-weight: 400; }
+    .hero-actions { margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--navy);
+      border: none;
+      border-radius: 6px;
+      padding: 0.95rem 1.85rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-primary:hover { background: #e68a00; }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:focus-visible, .form-input:focus-visible, .chip input:focus-visible + span { outline: 2px solid var(--green); outline-offset: 2px; }
+
+    .countdown {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .countdown b {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1.9rem;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .section { padding: 2.5rem 0; border-top: 1px solid var(--border); }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: clamp(1.6rem, 4.5vw, 2.1rem);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+    h2 em { font-style: italic; color: var(--orange); }
+    .body-text { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 1rem; }
+    .body-text strong { color: var(--white); font-weight: 400; }
+    .body-text a, .fine a {
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .body-text a:hover, .fine a:hover { color: var(--orange); border-color: var(--orange); }
+
+    .promises { list-style: none; display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 1.5rem; }
+    .promises li { background: var(--navy); padding: 1.35rem 1.5rem; display: grid; grid-template-columns: 2.25rem 1fr; gap: 0.75rem; align-items: start; }
+    .promises .num { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--orange); line-height: 1.2; }
+    .promises h3 { font-weight: 500; font-size: 1rem; margin-bottom: 0.3rem; color: var(--white); }
+    .promises p { font-size: 0.92rem; line-height: 1.65; color: var(--muted); }
+
+    .compare { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.92rem; }
+    .compare th, .compare td { text-align: left; padding: 0.85rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.5; }
+    .compare th { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .compare td:first-child { color: var(--muted); width: 34%; }
+    .compare td.no { color: rgba(248,246,241,0.8); }
+    .compare td.yes { color: var(--green); }
+
+    .cta-section {
+      margin: 1rem 0 1.5rem;
+      padding: 2.5rem;
+      border: 1px solid rgba(255,153,0,0.35);
+      border-radius: 12px;
+      background: rgba(255,153,0,0.04);
+      scroll-margin-top: 1.5rem;
+    }
+    .cta-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 0.75rem; }
+    .cta-sub { font-size: 0.95rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.75rem; }
+    .field { margin-bottom: 1.1rem; }
+    .field-label { display: block; font-size: 0.82rem; font-weight: 500; margin-bottom: 0.45rem; color: var(--white); }
+    .field-label .opt { font-weight: 300; color: var(--muted); }
+    .form-row { display: flex; gap: 0.75rem; }
+    .form-row .field { flex: 1; }
+    .form-input {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.8rem 1rem;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    textarea.form-input { min-height: 96px; resize: vertical; line-height: 1.6; }
+    .form-input::placeholder { color: rgba(248,246,241,0.32); }
+    .form-input:focus { border-color: rgba(100,220,50,0.5); }
+    fieldset { border: none; margin-bottom: 1.1rem; }
+    legend { font-size: 0.82rem; font-weight: 500; margin-bottom: 0.55rem; color: var(--white); }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .chip { position: relative; }
+    .chip input { position: absolute; opacity: 0; pointer-events: none; }
+    .chip span {
+      display: inline-block;
+      font-size: 0.85rem;
+      padding: 0.5rem 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .chip span:hover { border-color: rgba(248,246,241,0.35); color: var(--white); }
+    .chip input:checked + span { background: rgba(255,153,0,0.14); border-color: var(--orange); color: var(--white); }
+    .hidden { position: absolute; left: -9999px; }
+    .form-btn {
+      width: 100%;
+      background: var(--orange);
+      color: var(--navy);
+      border: none;
+      border-radius: 6px;
+      padding: 1rem 1.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.2s, transform 0.1s, opacity 0.2s;
+    }
+    .form-btn:hover { background: #e68a00; }
+    .form-btn:active { transform: scale(0.99); }
+    .form-btn[disabled] { opacity: 0.6; cursor: wait; }
+    .form-note { font-size: 0.78rem; color: var(--muted); opacity: 0.8; margin-top: 0.9rem; line-height: 1.6; }
+    .form-error { display: none; margin-top: 0.9rem; font-size: 0.88rem; color: #ffb4a8; }
+    .form-success {
+      display: none;
+      padding: 1.5rem;
+      background: rgba(100,220,50,0.08);
+      border: 1px solid rgba(100,220,50,0.3);
+      border-radius: 8px;
+    }
+    .form-success h3 { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.4rem; color: var(--green); margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
+    .share-row { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .share-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--white);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.55rem 1rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .share-btn:hover { border-color: var(--orange); color: var(--orange); }
+
+    .faq details { border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .faq summary { cursor: pointer; font-weight: 400; font-size: 1rem; color: var(--white); list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--orange); font-size: 1.2rem; line-height: 1; }
+    .faq details[open] summary::after { content: '–'; }
+    .faq details p { margin-top: 0.75rem; font-size: 0.93rem; line-height: 1.75; color: var(--muted); }
+
+    .fine { font-size: 0.75rem; line-height: 1.6; color: var(--muted); opacity: 0.75; margin-top: 2rem; }
+
+    footer {
+      padding: 2.5rem 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      margin-top: 1.5rem;
+      gap: 1rem;
+    }
+    .footer-left { font-size: 0.8rem; color: var(--muted); opacity: 0.7; }
+    .footer-right { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+    .footer-link { font-size: 0.8rem; color: var(--muted); opacity: 0.7; text-decoration: none; transition: opacity 0.2s, color 0.2s; }
+    .footer-link:hover { opacity: 1; color: var(--white); }
+
+    @media (max-width: 560px) {
+      .page-wrap { padding: 0 1.35rem; }
+      .hero { padding-top: 3.25rem; }
+      .form-row { flex-direction: column; gap: 0; }
+      .cta-section { padding: 1.6rem 1.3rem; }
+      .promises li { padding: 1.15rem 1.1rem; }
+      .compare td, .compare th { padding: 0.75rem 0.4rem; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-right { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <nav>
+      <a href="/" class="wordmark">LIVARYA<span>.</span></a>
+      <a href="#join" class="nav-cta">Join the waitlist</a>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow reveal d1">For handmade sellers</p>
+      <h1 class="reveal d1">Enough with <em>Etsy.</em></h1>
+      <p class="lede reveal d2">
+        Starting <strong>December 16</strong>, Etsy's updated Terms of Use let Etsy and its partners use
+        your listing photos and descriptions to <strong>train AI</strong>. There's no simple switch in your
+        shop settings to say no.
+      </p>
+      <p class="lede reveal d2" style="margin-top:1rem;">
+        We're building the alternative: a marketplace for human makers that will
+        <strong>never train AI on your work, and puts that promise in writing.</strong>
+      </p>
+      <div class="hero-actions reveal d3">
+        <a href="#join" class="btn-primary">Save my founding seller spot</a>
+        <span class="countdown" id="countdown" aria-live="polite"></span>
+      </div>
+    </header>
+
+    <section class="section reveal d4">
+      <p class="section-label">What changed</p>
+      <h2>Your work, their <em>training data.</em></h2>
+      <p class="body-text">
+        Etsy published new Terms of Use and a new Privacy Policy on October 26, 2026. They take effect December 16.
+        You still own what you upload, but the updated license adds explicit permission for Etsy and its
+        authorized partners to use seller content to develop and train AI.
+      </p>
+      <p class="body-text">
+        Meanwhile, the same marketplace is asking <em>you</em> to prove your work is human. Many sellers
+        have decided that trade isn't worth it. If you're one of them, you shouldn't have to give up your
+        customers to protect your craft.
+      </p>
+      <p class="body-text">
+        Don't take our word for it: <a href="https://www.valueaddedresource.net/etsy-expands-ai-training-rights/" target="_blank" rel="noopener">read the reporting</a>,
+        then read Etsy's terms yourself.
+      </p>
+    </section>
+
+    <section class="section">
+      <p class="section-label">The promise</p>
+      <h2>What we're building <em>with</em> you.</h2>
+      <ul class="promises">
+        <li>
+          <span class="num">01</span>
+          <div>
+            <h3>Your work never trains AI. Ever.</h3>
+            <p>Not ours, not a partner's. It will be written into the seller terms as a contract, not tucked into a settings page.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <div>
+            <h3>Move your shop in minutes</h3>
+            <p>Etsy lets you export your listings as a CSV. Upload that file, and your photos, titles, prices and descriptions come with you.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <div>
+            <h3>Human-made, and enforced</h3>
+            <p>Made by you, designed by you, or curated vintage. Mass-produced resale and AI-generated listings stay out.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">04</span>
+          <div>
+            <h3>Fees you can do in your head</h3>
+            <p>One simple fee structure, published before launch. No surprise ad charges.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">05</span>
+          <div>
+            <h3>Founding sellers have a say in how it's built</h3>
+            <p>The first sellers on the waitlist get early access, a founding badge and a direct line to the people building it.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <p class="section-label">Side by side</p>
+      <table class="compare">
+        <thead>
+          <tr><th scope="col"></th><th scope="col">Etsy, from Dec 16</th><th scope="col">What we're building</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AI training on your listings</td><td class="no">Permitted by the terms</td><td class="yes">Prohibited by contract</td></tr>
+          <tr><td>Opting out</td><td class="no">No simple setting</td><td class="yes">Nothing to opt out of</td></tr>
+          <tr><td>Who it's for</td><td class="no">Everyone</td><td class="yes">Human makers</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="cta-section" id="join">
+      <p class="cta-label">Founding seller waitlist</p>
+      <h2>Ready to say <em>enough</em>?</h2>
+      <p class="cta-sub">Tell us a little about your shop. We'll email you when early access opens. Your answers will decide what we build first.</p>
+
+      <form action="https://formspree.io/f/mjglvpqa" method="POST" id="waitlist-form" novalidate>
+        <input type="hidden" name="_subject" value="Enough with Etsy: new founding seller" />
+        <input type="hidden" name="source" value="EnoughWithEtsy" />
+        <p class="hidden" aria-hidden="true"><label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label></p>
+
+        <div class="form-row">
+          <div class="field">
+            <label class="field-label" for="f-name">Your name</label>
+            <input class="form-input" id="f-name" type="text" name="name" autocomplete="name" placeholder="Jane Maker" />
+          </div>
+          <div class="field">
+            <label class="field-label" for="f-email">Email</label>
+            <input class="form-input" id="f-email" type="email" name="email" autocomplete="email" placeholder="you@yourshop.com" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-shop">Your Etsy shop <span class="opt">(optional)</span></label>
+          <input class="form-input" id="f-shop" type="text" name="etsy_shop" placeholder="etsy.com/shop/YourShop" />
+        </div>
+
+        <fieldset>
+          <legend>What do you make?</legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="category" value="Handmade goods" /><span>Handmade goods</span></label>
+            <label class="chip"><input type="checkbox" name="category" value="Art & prints" /><span>Art &amp; prints</span></label>
+            <label class="chip"><input type="checkbox" name="category" value="Jewelry" /><span>Jewelry</span></label>
+            <label class="chip"><input type="checkbox" name="category" value="Patterns & digital" /><span>Patterns &amp; digital</span></label>
+            <label class="chip"><input type="checkbox" name="category" value="Vintage" /><span>Vintage</span></label>
+            <label class="chip"><input type="checkbox" name="category" value="Craft supplies" /><span>Craft supplies</span></label>
+            <label class="chip"><input type="checkbox" name="category" value="Something else" /><span>Something else</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>How many active listings?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="listings" value="1-25" /><span>1–25</span></label>
+            <label class="chip"><input type="radio" name="listings" value="26-100" /><span>26–100</span></label>
+            <label class="chip"><input type="radio" name="listings" value="101-500" /><span>101–500</span></label>
+            <label class="chip"><input type="radio" name="listings" value="500+" /><span>500+</span></label>
+            <label class="chip"><input type="radio" name="listings" value="Not selling yet" /><span>Not selling yet</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label class="field-label" for="f-why">What would it take for you to switch? <span class="opt">(optional)</span></label>
+          <textarea class="form-input" id="f-why" name="what_would_make_you_switch" placeholder="Lower fees, real human support, better search, no AI training..."></textarea>
+        </div>
+
+        <button class="form-btn" type="submit" id="submit-btn">Save my founding seller spot</button>
+        <p class="form-error" id="form-error" role="alert">Something went wrong. Please try again, or email <a href="mailto:hello@livarya.ai" style="color:inherit;">hello@livarya.ai</a>.</p>
+        <p class="form-note">We'll only email you about early access. No newsletter, and we never sell your info. And yes, we won't train AI on your answers either.</p>
+      </form>
+
+      <div class="form-success" id="form-success" role="status" tabindex="-1">
+        <h3>You're on the list.</h3>
+        <p>Welcome, founding seller. The more makers who join, the faster we can open the doors. Know another maker who's had enough?</p>
+        <div class="share-row">
+          <button type="button" class="share-btn" id="share-btn">Share this page</button>
+          <a class="share-btn" id="share-x" target="_blank" rel="noopener" href="#">Post on X</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <p class="section-label">Questions</p>
+      <details>
+        <summary>Is this live yet?</summary>
+        <p>Not yet. This is the founding seller waitlist. We're building now and inviting sellers in small groups, in the order they joined. Nothing changes with your Etsy shop until you decide to move.</p>
+      </details>
+      <details>
+        <summary>Do I have to leave Etsy to join?</summary>
+        <p>No. Lots of sellers will run both shops for a while. Joining the waitlist costs nothing and commits you to nothing.</p>
+      </details>
+      <details>
+        <summary>Can I still use AI tools in my own process?</summary>
+        <p>The core promise is about <em>your</em> work never being used to train AI. We'll publish clear listing standards before launch, written with input from founding sellers, so everyone knows where the line is.</p>
+      </details>
+      <details>
+        <summary>Who's behind this?</summary>
+        <p>It's a Livarya project from Joshua George, based in Denver, Colorado. Questions? Email <a href="mailto:hello@livarya.ai" style="color:var(--white);">hello@livarya.ai</a>. A real person will read it.</p>
+      </details>
+    </section>
+
+    <p class="fine">
+      Etsy is a trademark of Etsy, Inc. This project is independent and is not affiliated with, endorsed by or sponsored by Etsy, Inc.
+      Descriptions of Etsy's terms are based on public reporting about the Terms of Use published October 26, 2026 and effective December 16, 2026.
+      Always read Etsy's own Terms of Use and Privacy Policy before making decisions about your shop.
+    </p>
+
+    <footer>
+      <span class="footer-left">&copy; 2026 Joshu.AI, LLC dba Livarya.</span>
+      <div class="footer-right">
+        <a href="mailto:hello@livarya.ai" class="footer-link">Contact</a>
+        <a href="/privacy/" class="footer-link">Privacy Policy</a>
+        <a href="/terms/" class="footer-link">Terms of Service</a>
+        <a href="/ai-ethics/" class="footer-link">AI Ethics &amp; Transparency</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      // Countdown to Etsy's terms taking effect (Dec 16, 2026, US Mountain).
+      var target = new Date('2026-12-16T00:00:00-07:00').getTime();
+      var el = document.getElementById('countdown');
+      function tick() {
+        var ms = target - Date.now();
+        if (ms <= 0) { el.innerHTML = 'Etsy’s new terms are <b style="font-size:1.1rem;font-family:inherit;color:var(--orange);">now in effect</b>'; return; }
+        var days = Math.ceil(ms / 86400000);
+        el.innerHTML = '<b>' + days + '</b> day' + (days === 1 ? '' : 's') + ' until the new terms take effect';
+      }
+      tick(); setInterval(tick, 60000);
+
+      // Waitlist submit via Formspree (falls back to normal POST if JS fails).
+      var form = document.getElementById('waitlist-form');
+      var btn = document.getElementById('submit-btn');
+      var err = document.getElementById('form-error');
+      var ok = document.getElementById('form-success');
+      var email = document.getElementById('f-email');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        err.style.display = 'none';
+        if (!email.value || !email.checkValidity()) {
+          email.focus();
+          email.style.borderColor = '#ffb4a8';
+          return;
+        }
+        email.style.borderColor = '';
+        btn.disabled = true;
+        btn.textContent = 'Saving your spot…';
+
+        var data = new FormData(form);
+        // Collapse multi-select categories into one readable field.
+        var cats = data.getAll('category');
+        data.delete('category');
+        data.append('category', cats.join(', ') || '(none selected)');
+
+        fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+          .then(function (r) {
+            if (!r.ok) throw new Error('bad status');
+            form.style.display = 'none';
+            ok.style.display = 'block';
+            ok.focus();
+          })
+          .catch(function () {
+            err.style.display = 'block';
+            btn.disabled = false;
+            btn.textContent = 'Save my founding seller spot';
+          });
+      });
+
+      // Share
+      var url = 'https://livarya.ai/EnoughWithEtsy/';
+      var text = 'Etsy’s new terms let it train AI on sellers’ work starting Dec 16. Some of us have had enough.';
+      document.getElementById('share-x').href = 'https://x.com/intent/post?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+      document.getElementById('share-btn').addEventListener('click', function () {
+        var b = this;
+        if (navigator.share) { navigator.share({ title: 'Enough with Etsy', text: text, url: url }).catch(function () {}); return; }
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(function () { b.textContent = 'Link copied!'; }, function () { prompt('Copy this link:', url); });
+        } else { prompt('Copy this link:', url); }
+      });
+    })();
+  </script>
+</body>
+</html>
